@@ -1,12 +1,14 @@
+when:
+  event: push
 steps:
   setup:
-    image: maven:3.8.6-openjdk-17
+    image: maven:3.9.9-amazoncorretto-21
     commands:
       - echo "Setting up environment"
       - mvn clean install -DskipTests
 
   test:
-    image: maven:3.8.6-openjdk-17
+    image: maven:3.9.9-amazoncorretto-21
     commands:
       - echo "Running unit tests"
       - mvn test
