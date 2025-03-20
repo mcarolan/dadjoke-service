@@ -1,5 +1,7 @@
 when:
-  event: push
+  event:
+    - push
+    - manual
 steps:
   setup:
     image: maven:3.9.9-amazoncorretto-21
