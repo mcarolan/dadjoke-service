@@ -21,7 +21,7 @@ public class App {
         final JokeService jokeService = new JokeServiceImpl(jokeRepository);
 
         final Javalin app = Javalin.create(config -> {
-            config.plugins.enableCors(cors -> { cors.add(CorsPluginConfig::anyHost); });
+            config.bundledPlugins.enableCors(cors -> { cors.addRule(CorsPluginConfig.CorsRule::anyHost); });
         }).start(PORT);
         new JavalinJokeController(jokeService).setupRoutes(app);
 
